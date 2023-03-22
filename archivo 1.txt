@@ -1,1 +1,6 @@
-chanchito feliz
+Pagina web de mangas:
+
+Ingresar mangas: Nombre del manga, Fotos del manga, Demografia del manga, Autor, Genero, Link para leer el manga, Sinopsis del Manga, 
+Cantidad de Volumenes y Capitulos, Dividir entre Mangas, Webtoon, Manhua, Manhwas
+
+Mostrar Mangas: Nombre
