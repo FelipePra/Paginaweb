@@ -14,10 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from django.conf.urls.static import static
-from django.conf import settings
-from mangaapp.views import agregar_manga
+from mangaapp import views
 
 urlpatterns = [
-    path('agregar-manga/', agregar_manga, name='agregar_manga'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', views.listado_mangas, name='listado_mangas'),
+    path('ingreso/', views.ingreso, name='ingreso'),
+    path('detalle/<int:pk>/', views.detalle_manga, name='detalle_manga'),
+    path('eliminar/<int:pk>/', views.eliminar_manga, name='eliminar_manga'),
+]
+

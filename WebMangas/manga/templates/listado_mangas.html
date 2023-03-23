@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Listado de Mangas</h1>
+
+  <div class="form-group">
+    <label for="tipo">Filtrar por tipo:</label>
+    <select class="form-control" id="tipo" name="tipo" onchange="this.form.submit()">
+      <option value="">Todos</option>
+      <option value="Manga">Manga</option>
+      <option value="Manhwa">Manhwa</option>
+      <option value="Manhua">Manhua</option>
+      <option value="Webtoon">Webtoon</option>
+    </select>
+  </div>
+  {%if mangas %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Autor</th>
+        <th>Género</th>
+        <th>Demografía</th>
+        <th>Tipo</th>
+        <th>Cantidad de capítulos</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for m in mangas %}
+        <tr>
+          <td>{{ manga.nombre }}</td>
+          <td>{{ manga.autor }}</td>
+          <td>{{ manga.genero }}</td>
+          <td>{{ manga.demografia }}</td>
+          <td>{{ manga.tipo }}</td>
+          <td>{{ manga.cantidad_capitulos }}</td>
+          <td>
+            <a href="/detalle_manga{{manga.pk}}" class="btn btn-sm btn-primary">Detalle</a>
+            <a href="/eliminar_manga{{manga.pk}}" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de que desea eliminar este manga?')">Eliminar</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="7">No hay mangas disponibles.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %} 
+{% endblock %}
